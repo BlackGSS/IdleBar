@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://3cvc32advs0g"]
+
+[ext_resource type="Texture2D" uid="uid://c8xqj1ma6fr81" path="res://Images/Personajito azul-1.png.png" id="1_wh11r"]
+
+[node name="Personaje" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -256.0
+offset_top = -264.0
+offset_right = 245.0
+offset_bottom = 237.0
+texture = ExtResource("1_wh11r")
