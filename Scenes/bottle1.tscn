@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chq6ida8mh0ti"]
+[gd_scene load_steps=5 format=3 uid="uid://chq6ida8mh0ti"]
 
-[ext_resource type="Script" path="res://Scripts/bottleMovement.gd" id="1_7e7gt"]
-[ext_resource type="Script" path="res://Scripts/sipBottle.gd" id="2_xe2on"]
+[ext_resource type="Script" path="res://Scripts/Bottles/bottleMovement.gd" id="1_3p5l0"]
+[ext_resource type="Script" path="res://Scripts/Bottles/sipBottle.gd" id="2_sl16y"]
+[ext_resource type="Script" path="res://Scripts/UI/refillBottleButton.gd" id="3_baao7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
 size = Vector2(48, 22)
@@ -9,7 +10,7 @@ size = Vector2(48, 22)
 [node name="Bottle1" type="Area2D"]
 position = Vector2(1, 32)
 collision_mask = 3
-script = ExtResource("1_7e7gt")
+script = ExtResource("1_3p5l0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
@@ -38,7 +39,7 @@ grow_vertical = 0
 scale = Vector2(-1, -1)
 size_flags_vertical = 8
 color = Color(0.362768, 0.295823, 0.0992293, 1)
-script = ExtResource("2_xe2on")
+script = ExtResource("2_sl16y")
 
 [node name="ColorRect2" type="ColorRect" parent="BottleDraw"]
 layout_mode = 0
@@ -115,5 +116,23 @@ offset_right = 48.0
 offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
+[node name="Refill" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_baao7")
+
+[node name="RefillButton" type="Button" parent="Refill"]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = -138.0
+offset_right = 23.0
+offset_bottom = -107.0
+text = "Fill"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="on_bottle_empty" from="BottleDraw/Fill" to="Refill" method="_on_fill_on_bottle_empty"]
+[connection signal="button_down" from="Refill/RefillButton" to="BottleDraw/Fill" method="_on_refill_button_down"]

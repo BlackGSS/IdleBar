@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6in8q35388ef" path="res://Scenes/mesa.tscn" id="1_bpvnu"]
 [ext_resource type="Script" path="res://Scripts/moneyControl.gd" id="1_n0omi"]
 [ext_resource type="PackedScene" uid="uid://3cvc32advs0g" path="res://Scenes/personaje.tscn" id="2_64kcg"]
-[ext_resource type="Script" path="res://Scripts/instantiateBottle.gd" id="4_o4pmv"]
+[ext_resource type="Script" path="res://Scripts/Bottles/instantiateBottle.gd" id="4_o4pmv"]
 [ext_resource type="Script" path="res://Scripts/UI/moneyUI.gd" id="5_xa7pq"]
 [ext_resource type="PackedScene" uid="uid://co76un5efyq7y" path="res://Scenes/button_bottle.tscn" id="6_a2f2v"]
 [ext_resource type="PackedScene" uid="uid://bcy0logmr2826" path="res://Scenes/shelf.tscn" id="7_khtm8"]

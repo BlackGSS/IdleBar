@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wxknjc3gy4kp"]
 
-[ext_resource type="Script" path="res://Scripts/bottleMovement.gd" id="1_o2enk"]
+[ext_resource type="Script" path="res://Scripts/Bottles/bottleMovement.gd" id="1_o2enk"]
 [ext_resource type="Script" path="res://Scripts/timeoutMoney.gd" id="2_a7uir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
