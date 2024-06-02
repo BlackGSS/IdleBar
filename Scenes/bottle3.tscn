@@ -1,100 +1,133 @@
-[gd_scene format=3 uid="uid://dde3hoisdlkrc"]
+[gd_scene load_steps=4 format=3 uid="uid://wxknjc3gy4kp"]
 
-[node name="Bottle" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/bottleMovement.gd" id="1_o2enk"]
+[ext_resource type="Script" path="res://Scripts/timeoutMoney.gd" id="2_a7uir"]
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -16.0
-offset_right = -24.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
+size = Vector2(62, 24)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -32.0
-offset_right = -24.0
-offset_bottom = -16.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Bottle3" type="Area2D"]
+position = Vector2(1, 32)
+collision_mask = 3
+script = ExtResource("1_o2enk")
 
-[node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -48.0
-offset_right = -24.0
-offset_bottom = -32.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_vn7lg")
 
-[node name="ColorRect5" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -64.0
-offset_right = -24.0
-offset_bottom = -48.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect10" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -80.0
-offset_right = 8.0
-offset_bottom = -64.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect12" type="ColorRect" parent="."]
+[node name="BottleDraw" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -24.0
-offset_top = -80.0
-offset_right = -8.0
-offset_bottom = -64.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="."]
-offset_left = 8.0
-offset_top = -16.0
+offset_top = -96.0
 offset_right = 24.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect11" type="ColorRect" parent="."]
+[node name="ColorRect14" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = -8.0
+offset_top = 64.0
 offset_right = 8.0
-offset_bottom = 16.0
+offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect13" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_right = -8.0
+[node name="ColorRect15" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 48.0
+offset_right = 8.0
+offset_bottom = 64.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 32.0
+offset_right = 8.0
+offset_bottom = 48.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect17" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 16.0
+offset_right = 8.0
+offset_bottom = 32.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect18" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 40.0
 offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect7" type="ColorRect" parent="."]
+[node name="ColorRect19" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 8.0
-offset_top = -32.0
 offset_right = 24.0
-offset_bottom = -16.0
+offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect8" type="ColorRect" parent="."]
+[node name="ColorRect20" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 56.0
+offset_bottom = 80.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect21" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 96.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect22" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 8.0
-offset_top = -48.0
+offset_top = 80.0
 offset_right = 24.0
-offset_bottom = -32.0
+offset_bottom = 96.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect9" type="ColorRect" parent="."]
+[node name="ColorRect23" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 56.0
+offset_bottom = 64.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect24" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 56.0
+offset_bottom = 48.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect25" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 32.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="Fill2" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 8.0
-offset_top = -64.0
-offset_right = 24.0
-offset_bottom = -48.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Fill" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -64.0
-offset_right = 8.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 80.0
 color = Color(0.362768, 0.295823, 0.0992293, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("2_a7uir")
+money = 10
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

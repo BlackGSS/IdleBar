@@ -1,9 +1,14 @@
 extends Node
 
-var money = 0;
+var money = 100
+signal createBottle(bottleType)
+signal updateMoney(money)
 
-#func _on_bottle_created(bottle):
-	#bottle.on_timeout_bottle.connect(_on_bottle_money)
-#
-#func _on_bottle_money(moreMoney):
-	#money += moreMoney
+func _ready():
+	updateMoney.emit(money);
+
+func _on_button_bottle_spawn_bottle(bottleType, price):
+	if (money >= price):
+		money -= price
+		createBottle.emit(bottleType);
+		updateMoney.emit(money);

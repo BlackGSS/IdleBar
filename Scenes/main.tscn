@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnxmmdvmp7sy8"]
+[gd_scene load_steps=10 format=3 uid="uid://cnxmmdvmp7sy8"]
 
 [ext_resource type="PackedScene" uid="uid://c6in8q35388ef" path="res://Scenes/mesa.tscn" id="1_bpvnu"]
 [ext_resource type="Script" path="res://Scripts/moneyControl.gd" id="1_n0omi"]
 [ext_resource type="PackedScene" uid="uid://3cvc32advs0g" path="res://Scenes/personaje.tscn" id="2_64kcg"]
 [ext_resource type="Script" path="res://Scripts/instantiateBottle.gd" id="4_o4pmv"]
+[ext_resource type="Script" path="res://Scripts/UI/moneyUI.gd" id="5_xa7pq"]
+[ext_resource type="PackedScene" uid="uid://co76un5efyq7y" path="res://Scenes/button_bottle.tscn" id="6_a2f2v"]
+[ext_resource type="PackedScene" uid="uid://bcy0logmr2826" path="res://Scenes/shelf.tscn" id="7_khtm8"]
+[ext_resource type="Script" path="res://Scripts/UI/drinkButton.gd" id="8_k28vt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gf2r2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_n0omi")
@@ -27,14 +33,18 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.27451, 0.0392157, 0.301961, 1)
 
-[node name="Mesa" parent="." instance=ExtResource("1_bpvnu")]
+[node name="Mesa" parent="Background" instance=ExtResource("1_bpvnu")]
 
-[node name="Personaje" parent="." instance=ExtResource("2_64kcg")]
+[node name="Personaje" parent="Background" instance=ExtResource("2_64kcg")]
 position = Vector2(581, 427)
 
-[node name="Bottles1" type="Node2D" parent="."]
-position = Vector2(595, 473)
+[node name="BottlesManagement" type="Node2D" parent="."]
+
+[node name="Spawner" type="Node2D" parent="BottlesManagement"]
+position = Vector2(597, 489)
 script = ExtResource("4_o4pmv")
+
+[node name="Sipper" type="Node2D" parent="BottlesManagement"]
 
 [node name="Money" type="Control" parent="."]
 layout_mode = 3
@@ -43,45 +53,108 @@ offset_left = 975.0
 offset_top = 1.0
 offset_right = 1151.0
 offset_bottom = 55.0
+script = ExtResource("5_xa7pq")
 
 [node name="Panel" type="Panel" parent="Money"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -174.0
-offset_bottom = 50.0
+offset_left = -175.0
+offset_top = 7.0
+offset_right = -1.0
+offset_bottom = 57.0
 grow_horizontal = 0
 
-[node name="Label" type="Label" parent="Money/Panel"]
+[node name="MoneyLabel" type="Label" parent="Money/Panel"]
 layout_mode = 0
 offset_right = 94.0
 offset_bottom = 47.0
 text = "10"
+label_settings = SubResource("LabelSettings_gf2r2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buy Bottles" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 9.0
-offset_top = 493.0
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_left = 715.0
+offset_top = 365.0
+offset_right = 1145.0
+offset_bottom = 474.0
 
-[node name="Bottle1" type="Button" parent="Buy Bottles"]
+[node name="ButtonBottle" parent="Buy Bottles" instance=ExtResource("6_a2f2v")]
 layout_mode = 0
-offset_left = 12.0
-offset_top = -109.0
-offset_right = 170.0
-offset_bottom = -34.0
-text = "Bottle 1"
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 73.0
+offset_bottom = 109.0
 
-[node name="Label" type="Label" parent="Buy Bottles/Bottle1"]
+[node name="ButtonBottle2" parent="Buy Bottles" instance=ExtResource("6_a2f2v")]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 48.0
-offset_right = 95.0
-offset_bottom = 71.0
-text = "10"
+offset_left = 93.0
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 109.0
+text = "Bottle 2"
+price = 20
+bottleType = 1
 
-[connection signal="bottle_created" from="Bottles1" to="." method="_on_bottle_created"]
-[connection signal="button_down" from="Buy Bottles/Bottle1" to="Bottles1" method="_on_button_down"]
+[node name="ButtonBottle3" parent="Buy Bottles" instance=ExtResource("6_a2f2v")]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 3.0
+offset_right = 249.0
+offset_bottom = 109.0
+text = "Bottle 2"
+price = 40
+bottleType = 2
+
+[node name="Shelfs" type="Node2D" parent="."]
+
+[node name="Shelf" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(208, 344)
+
+[node name="Shelf2" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(208, 192)
+
+[node name="Shelf3" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(456, 104)
+
+[node name="Shelf4" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(616, 216)
+
+[node name="Shelf5" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(856, 120)
+
+[node name="Shelf6" parent="Shelfs" instance=ExtResource("7_khtm8")]
+position = Vector2(984, 272)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 576.0
+offset_right = 1024.0
+offset_bottom = 640.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 192.0
+offset_bottom = 32.0
+text = "Drink 1"
+script = ExtResource("8_k28vt")
+
+[connection signal="createBottle" from="." to="BottlesManagement/Spawner" method="_on_main_create_bottle"]
+[connection signal="createBottle" from="." to="Control/Button" method="_on_main_create_bottle"]
+[connection signal="updateMoney" from="." to="Money" method="_on_main_update_money"]
+[connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle" method="_on_main_update_money"]
+[connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle2" method="_on_main_update_money"]
+[connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle3" method="_on_main_update_money"]
+[connection signal="bottle_created" from="BottlesManagement/Spawner" to="Control/Button" method="_on_spawner_bottle_created"]
+[connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle" to="." method="_on_button_bottle_spawn_bottle"]
+[connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle2" to="." method="_on_button_bottle_spawn_bottle"]
+[connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle3" to="." method="_on_button_bottle_spawn_bottle"]
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_button_down"]

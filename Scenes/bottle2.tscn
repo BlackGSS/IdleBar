@@ -1,90 +1,112 @@
-[gd_scene format=3 uid="uid://dlv2xqwpyc4ek"]
+[gd_scene load_steps=4 format=3 uid="uid://bdgns6qu3s2n1"]
 
-[node name="Bottle" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/bottleMovement.gd" id="1_p8f6p"]
+[ext_resource type="Script" path="res://Scripts/timeoutMoney.gd" id="3_jnwbc"]
 
-[node name="Fill" type="ColorRect" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
+size = Vector2(16, 24)
+
+[node name="Bottle2" type="Area2D"]
+position = Vector2(1, 32)
+collision_mask = 3
+script = ExtResource("1_p8f6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_vn7lg")
+
+[node name="BottleDraw" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -24.0
-offset_top = -80.0
+offset_top = -96.0
 offset_right = 24.0
+
+[node name="Fill" type="ColorRect" parent="BottleDraw"]
+offset_right = 48.0
+offset_bottom = 80.0
 color = Color(0.362768, 0.295823, 0.0992293, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = -8.0
+[node name="ColorRect2" type="ColorRect" parent="BottleDraw"]
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -32.0
-offset_right = -24.0
-offset_bottom = -16.0
+[node name="ColorRect3" type="ColorRect" parent="BottleDraw"]
+offset_left = -16.0
+offset_top = 48.0
+offset_bottom = 64.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -48.0
-offset_right = -24.0
-offset_bottom = -32.0
+[node name="ColorRect4" type="ColorRect" parent="BottleDraw"]
+offset_left = -16.0
+offset_top = 32.0
+offset_bottom = 48.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect5" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -80.0
-offset_right = -8.0
-offset_bottom = -64.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="ColorRect13" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -64.0
-offset_right = -24.0
-offset_bottom = -48.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="ColorRect10" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -96.0
-offset_right = 8.0
-offset_bottom = -80.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="."]
-offset_left = 8.0
-offset_top = -16.0
-offset_right = 24.0
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-
-[node name="ColorRect11" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_right = 8.0
+[node name="ColorRect5" type="ColorRect" parent="BottleDraw"]
+offset_right = 16.0
 offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect7" type="ColorRect" parent="."]
-offset_left = 24.0
-offset_top = -32.0
-offset_right = 40.0
-offset_bottom = -16.0
+[node name="ColorRect13" type="ColorRect" parent="BottleDraw"]
+offset_left = -16.0
+offset_top = 16.0
+offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect8" type="ColorRect" parent="."]
-offset_left = 24.0
-offset_top = -48.0
-offset_right = 40.0
-offset_bottom = -32.0
+[node name="ColorRect10" type="ColorRect" parent="BottleDraw"]
+offset_left = 16.0
+offset_top = -16.0
+offset_right = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect12" type="ColorRect" parent="."]
-offset_left = 24.0
-offset_top = -64.0
-offset_right = 40.0
-offset_bottom = -48.0
+[node name="ColorRect6" type="ColorRect" parent="BottleDraw"]
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 48.0
+offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="ColorRect9" type="ColorRect" parent="."]
-offset_left = 8.0
-offset_top = -80.0
-offset_right = 24.0
-offset_bottom = -64.0
+[node name="ColorRect11" type="ColorRect" parent="BottleDraw"]
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 32.0
+offset_bottom = 96.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="BottleDraw"]
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="BottleDraw"]
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 48.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="BottleDraw"]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 32.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="BottleDraw"]
+offset_left = 32.0
+offset_right = 48.0
+offset_bottom = 16.0
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("3_jnwbc")
+money = 10
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
