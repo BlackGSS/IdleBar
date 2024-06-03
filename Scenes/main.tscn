@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnxmmdvmp7sy8"]
 
-[ext_resource type="PackedScene" uid="uid://c6in8q35388ef" path="res://Scenes/mesa.tscn" id="1_bpvnu"]
+[ext_resource type="PackedScene" uid="uid://c6in8q35388ef" path="res://Scenes/Background/mesa.tscn" id="1_bpvnu"]
 [ext_resource type="Script" path="res://Scripts/moneyControl.gd" id="1_n0omi"]
-[ext_resource type="PackedScene" uid="uid://3cvc32advs0g" path="res://Scenes/personaje.tscn" id="2_64kcg"]
+[ext_resource type="PackedScene" uid="uid://3cvc32advs0g" path="res://Scenes/Background/personaje.tscn" id="2_64kcg"]
 [ext_resource type="Script" path="res://Scripts/Bottles/instantiateBottle.gd" id="4_o4pmv"]
 [ext_resource type="Script" path="res://Scripts/UI/moneyUI.gd" id="5_xa7pq"]
-[ext_resource type="PackedScene" uid="uid://co76un5efyq7y" path="res://Scenes/button_bottle.tscn" id="6_a2f2v"]
-[ext_resource type="PackedScene" uid="uid://bcy0logmr2826" path="res://Scenes/shelf.tscn" id="7_khtm8"]
-[ext_resource type="Script" path="res://Scripts/UI/drinkButton.gd" id="8_k28vt"]
+[ext_resource type="PackedScene" uid="uid://co76un5efyq7y" path="res://Scenes/UI/button_bottle.tscn" id="6_a2f2v"]
+[ext_resource type="PackedScene" uid="uid://bcy0logmr2826" path="res://Scenes/Background/shelf.tscn" id="7_khtm8"]
+[ext_resource type="PackedScene" uid="uid://bxn74lfqes5vg" path="res://Scenes/UI/drinkButton.tscn" id="8_hmjm5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gf2r2"]
 
@@ -130,31 +130,44 @@ position = Vector2(856, 120)
 [node name="Shelf6" parent="Shelfs" instance=ExtResource("7_khtm8")]
 position = Vector2(984, 272)
 
-[node name="Control" type="Control" parent="."]
+[node name="DrinkButtons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 128.0
-offset_top = 576.0
+offset_top = 536.0
 offset_right = 1024.0
 offset_bottom = 640.0
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = -16.0
-offset_right = 192.0
-offset_bottom = 32.0
-text = "Drink 1"
-script = ExtResource("8_k28vt")
+[node name="Bottle1" parent="DrinkButtons" instance=ExtResource("8_hmjm5")]
+layout_mode = 1
+
+[node name="Bottle2" parent="DrinkButtons" instance=ExtResource("8_hmjm5")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_right = 72.0
+grow_horizontal = 2
+text = "Drink 2"
+bottleType = 1
+
+[node name="Bottle3" parent="DrinkButtons" instance=ExtResource("8_hmjm5")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_right = 0.0
+grow_horizontal = 0
+text = "Drink 3"
+bottleType = 2
 
 [connection signal="createBottle" from="." to="BottlesManagement/Spawner" method="_on_main_create_bottle"]
-[connection signal="createBottle" from="." to="Control/Button" method="_on_main_create_bottle"]
 [connection signal="updateMoney" from="." to="Money" method="_on_main_update_money"]
 [connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle" method="_on_main_update_money"]
 [connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle2" method="_on_main_update_money"]
 [connection signal="updateMoney" from="." to="Buy Bottles/ButtonBottle3" method="_on_main_update_money"]
-[connection signal="bottle_created" from="BottlesManagement/Spawner" to="Control/Button" method="_on_spawner_bottle_created"]
 [connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle" to="." method="_on_button_bottle_spawn_bottle"]
 [connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle2" to="." method="_on_button_bottle_spawn_bottle"]
 [connection signal="spawn_bottle" from="Buy Bottles/ButtonBottle3" to="." method="_on_button_bottle_spawn_bottle"]
-[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_button_down"]

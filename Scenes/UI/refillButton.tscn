@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://057x5voe77f2"]
+
+[ext_resource type="Script" path="res://Scripts/UI/refillBottleButton.gd" id="1_e4lkq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.0
+offset_top = -143.0
+offset_right = 24.0
+offset_bottom = -102.0
+script = ExtResource("1_e4lkq")
+
+[node name="RefillButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -15.5
+offset_right = 23.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fill"
+
+[connection signal="button_down" from="RefillButton" to="." method="_on_refill_button_down"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdgns6qu3s2n1"]
+[gd_scene load_steps=5 format=3 uid="uid://bdgns6qu3s2n1"]
 
-[ext_resource type="Script" path="res://Scripts/Bottles/bottleMovement.gd" id="1_p8f6p"]
-[ext_resource type="Script" path="res://Scripts/timeoutMoney.gd" id="3_jnwbc"]
+[ext_resource type="Script" path="res://Scripts/Bottles/bottleMovement.gd" id="1_bgy5y"]
+[ext_resource type="Script" path="res://Scripts/Bottles/sipBottle.gd" id="2_fvrgn"]
+[ext_resource type="PackedScene" uid="uid://057x5voe77f2" path="res://Scenes/UI/refillButton.tscn" id="3_pwh7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
 size = Vector2(16, 24)
@@ -9,7 +10,8 @@ size = Vector2(16, 24)
 [node name="Bottle2" type="Area2D"]
 position = Vector2(1, 32)
 collision_mask = 3
-script = ExtResource("1_p8f6p")
+script = ExtResource("1_bgy5y")
+type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
@@ -23,46 +25,58 @@ offset_top = -96.0
 offset_right = 24.0
 
 [node name="Fill" type="ColorRect" parent="BottleDraw"]
-offset_right = 48.0
-offset_bottom = 80.0
+layout_mode = 0
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 96.0
+offset_bottom = 160.0
+scale = Vector2(-1, -1)
 color = Color(0.362768, 0.295823, 0.0992293, 1)
+script = ExtResource("2_fvrgn")
 
 [node name="ColorRect2" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_top = 64.0
 offset_right = 16.0
 offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = 48.0
 offset_bottom = 64.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = 32.0
 offset_bottom = 48.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect13" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = 16.0
 offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = -16.0
 offset_right = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 64.0
 offset_right = 48.0
@@ -70,6 +84,7 @@ offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 80.0
 offset_right = 32.0
@@ -77,6 +92,7 @@ offset_bottom = 96.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 48.0
 offset_right = 64.0
@@ -84,6 +100,7 @@ offset_bottom = 64.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 32.0
 offset_right = 64.0
@@ -91,6 +108,7 @@ offset_bottom = 48.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 16.0
 offset_right = 64.0
@@ -98,15 +116,17 @@ offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="BottleDraw"]
+layout_mode = 0
 offset_left = 32.0
 offset_right = 48.0
 offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="Timer" type="Timer" parent="."]
-script = ExtResource("3_jnwbc")
-money = 10
+[node name="Refill" parent="." instance=ExtResource("3_pwh7e")]
+offset_top = -153.0
+offset_bottom = -112.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
-[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="on_bottle_empty" from="BottleDraw/Fill" to="Refill" method="_on_bottle_empty"]
+[connection signal="on_button_refill" from="Refill" to="." method="_on_refill_button_down"]

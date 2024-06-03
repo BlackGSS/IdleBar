@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxn74lfqes5vg"]
+
+[ext_resource type="Script" path="res://Scripts/UI/drinkButton.gd" id="1_qxmmu"]
+
+[node name="Bottle1" type="Button"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -24.0
+offset_right = 144.0
+offset_bottom = 24.0
+grow_vertical = 2
+text = "Drink 1"
+script = ExtResource("1_qxmmu")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

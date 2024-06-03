@@ -3,7 +3,6 @@ extends ColorRect
 var originalSize
 var lessYSize
 signal on_bottle_empty
-signal on_bottle_refilled
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +14,5 @@ func sip():
 	if(size.y <= 0):
 		on_bottle_empty.emit()
 
-func _on_refill_button_down():
+func refill():
 	size.y = originalSize
-	on_bottle_refilled.emit()

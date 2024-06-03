@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var type = 0
+
 var click_radius = 25
 var positionHandlerOffset = 8;
 var dragging = false
@@ -36,6 +38,7 @@ func _input(event):
 		if(onAreaShelf && !dragging && !onAreaBottle):
 			global_position = Vector2(event.position.x, areaPosition.y)
 			placed = true
+			PubSub.bottle_placed.emit(type);
 			return
 		
 		if(!dragging):
@@ -54,3 +57,7 @@ func _on_area_exited(area):
 		onAreaShelf = false;
 	else:
 		onAreaBottle = false;
+
+func _on_refill_button_down():
+	PubSub.bottle_refilled.emit(type)
+	$BottleDraw/Fill.refill()

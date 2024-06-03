@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://o2uyemubll1x"]
+
+[ext_resource type="PackedScene" uid="uid://chq6ida8mh0ti" path="res://Scenes/bottle1.tscn" id="1_50dx3"]
+[ext_resource type="PackedScene" uid="uid://bdgns6qu3s2n1" path="res://Scenes/bottle2.tscn" id="2_k1ypw"]
+[ext_resource type="PackedScene" uid="uid://wxknjc3gy4kp" path="res://Scenes/bottle3.tscn" id="3_m23y4"]
+[ext_resource type="PackedScene" uid="uid://cqmilbmxrtrpt" path="res://Scenes/bottle4.tscn" id="4_1283t"]
+
+[node name="Wall" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 656.0
+color = Color(0.27451, 0.0392157, 0.301961, 1)
+
+[node name="Bottle" parent="." instance=ExtResource("1_50dx3")]
+position = Vector2(175, 228)
+
+[node name="Bottle8" parent="." instance=ExtResource("1_50dx3")]
+position = Vector2(107, 301)
+
+[node name="Bottle2" parent="." instance=ExtResource("2_k1ypw")]
+position = Vector2(712, 292)
+
+[node name="Bottle5" parent="." instance=ExtResource("2_k1ypw")]
+position = Vector2(270, 234)
+
+[node name="Bottle3" parent="." instance=ExtResource("2_k1ypw")]
+position = Vector2(795, 292)
+
+[node name="Bottle4" parent="." instance=ExtResource("2_k1ypw")]
+position = Vector2(795, 292)
+
+[node name="Bottle6" parent="." instance=ExtResource("3_m23y4")]
+position = Vector2(224, 228)
+
+[node name="Bottle7" parent="." instance=ExtResource("4_1283t")]
+position = Vector2(351, 251)

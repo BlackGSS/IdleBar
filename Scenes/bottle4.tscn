@@ -17,24 +17,28 @@ offset_right = 40.0
 offset_bottom = 17.0
 
 [node name="ColorRect2" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_top = 80.0
 offset_right = 16.0
 offset_bottom = 96.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_top = 64.0
 offset_right = 16.0
 offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_top = 48.0
 offset_right = 16.0
 offset_bottom = 64.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 32.0
@@ -42,18 +46,21 @@ offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect13" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_top = 32.0
 offset_right = 16.0
 offset_bottom = 48.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 32.0
 offset_right = 48.0
 offset_bottom = 16.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 80.0
 offset_right = 80.0
@@ -61,6 +68,7 @@ offset_bottom = 96.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 96.0
 offset_right = 48.0
@@ -68,6 +76,7 @@ offset_bottom = 112.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect15" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 96.0
 offset_right = 64.0
@@ -75,6 +84,7 @@ offset_bottom = 112.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect14" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 96.0
 offset_right = 32.0
@@ -82,6 +92,7 @@ offset_bottom = 112.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 80.0
@@ -89,6 +100,7 @@ offset_bottom = 80.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 48.0
 offset_right = 80.0
@@ -96,6 +108,7 @@ offset_bottom = 64.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 32.0
 offset_right = 80.0
@@ -103,6 +116,7 @@ offset_bottom = 48.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="Form"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 16.0
 offset_right = 64.0

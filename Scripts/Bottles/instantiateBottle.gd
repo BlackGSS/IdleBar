@@ -3,8 +3,9 @@ extends Node2D
 const bottle1Scene = preload("res://Scenes/bottle1.tscn")
 const bottle2Scene = preload("res://Scenes/bottle2.tscn")
 const bottle3Scene = preload("res://Scenes/bottle3.tscn")
+
+signal bottle_refilled(bottleType)
 signal bottle_created(bottle)
-@export var type = 0
 var bottleScenes;
 
 func _ready():
@@ -19,3 +20,6 @@ func _on_main_create_bottle(bottleType):
 	newBottle.name = "Bottle" + str(bottleType) + "_" + str(nodes.size())
 	add_child(newBottle)
 	bottle_created.emit(newBottle);
+
+func _on_bottle_refilled(bottleType):
+	print("Refilled")
