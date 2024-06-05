@@ -1,7 +1,7 @@
 extends BaseButton
 
 @export var bottleType = 0
-signal clickDrinkBottle(bottleType)
+@export var moneyAmount = 2
 
 func _ready():
 	disabled = true
@@ -10,22 +10,25 @@ func _ready():
 
 func _on_button_down():
 	var bottles = get_tree().get_nodes_in_group("Bottles" + str(bottleType))
+	var currentNotEmptyFills = Array()
 	var currentNotEmptyBottles = Array()
 	for bottle in bottles:
 		#we shouldn't do this, we're accessing to the childs of a scene
 		var filling = bottle.get_node("BottleDraw/Fill")
 		if(filling.size.y > 0):
-			currentNotEmptyBottles.append(filling)
+			currentNotEmptyFills.append(filling)
+			currentNotEmptyBottles.append(bottle)
 	
-	if(currentNotEmptyBottles.size() > 0):
-		for i in range(currentNotEmptyBottles.size() -1, -1, -1):
-			var bottle = currentNotEmptyBottles[i]
-			bottle.sip()
-			clickDrinkBottle.emit(bottleType)
-			if(bottle.size.y == 0):
-				currentNotEmptyBottles.erase(bottle)
+	if(currentNotEmptyFills.size() > 0):
+		for i in range(currentNotEmptyFills.size() -1, -1, -1):
+			var fill = currentNotEmptyFills[i]
+			fill.sip()
+			currentNotEmptyBottles[i].active_money_label(moneyAmount)
+			PubSub.clickDrinkBottle.emit(moneyAmount)
+			if(fill.size.y == 0):
+				currentNotEmptyFills.erase(fill)
 
-	if(currentNotEmptyBottles.size() == 0):
+	if(currentNotEmptyFills.size() == 0):
 		disabled = true
 
 func _on_bottle_created(bottleType):

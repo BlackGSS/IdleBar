@@ -61,3 +61,8 @@ func _on_area_exited(area):
 func _on_refill_button_down():
 	PubSub.bottle_refilled.emit(type)
 	$BottleDraw/Fill.refill()
+	
+func active_money_label(moneyAmount):
+	$MoneyGraphic/AnimationPlayer.stop(true)
+	$MoneyGraphic/Label.text = "+" + str(moneyAmount)
+	$MoneyGraphic/AnimationPlayer.play("moneyEarningText")

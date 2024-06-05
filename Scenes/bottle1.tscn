@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chq6ida8mh0ti"]
+[gd_scene load_steps=9 format=3 uid="uid://chq6ida8mh0ti"]
 
 [ext_resource type="Script" path="res://Scripts/Bottles/bottleMovement.gd" id="1_3p5l0"]
 [ext_resource type="Script" path="res://Scripts/Bottles/sipBottle.gd" id="2_sl16y"]
@@ -6,6 +6,57 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn7lg"]
 size = Vector2(48, 22)
+
+[sub_resource type="Theme" id="Theme_71lyf"]
+
+[sub_resource type="Animation" id="Animation_pwb2y"]
+resource_name = "moneyEarningText"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-6, -6), Vector2(-6, -14), Vector2(-6, -21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xflta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0g44"]
+_data = {
+"RESET": SubResource("Animation_xflta"),
+"moneyEarningText": SubResource("Animation_pwb2y")
+}
 
 [node name="Bottle1" type="Area2D"]
 position = Vector2(1, 32)
@@ -117,6 +168,41 @@ offset_bottom = 32.0
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="Refill" parent="." instance=ExtResource("3_p1nqc")]
+
+[node name="MoneyGraphic" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = -42.0
+offset_right = 44.0
+offset_bottom = -17.0
+
+[node name="Label" type="Label" parent="MoneyGraphic"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 34.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_71lyf")
+theme_override_colors/font_color = Color(0, 0.827451, 0.784314, 1)
+theme_override_colors/font_shadow_color = Color(0.372549, 0, 0.501961, 0.427451)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+text = "+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyGraphic"]
+libraries = {
+"": SubResource("AnimationLibrary_f0g44")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
